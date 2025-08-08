@@ -1,4 +1,4 @@
-#Employee Management using File Handling and Linked List
+# Employee Management using File Handling and Linked List
 
 
 We are storing the details in files so that the details can be persistent and a linked list is being used so that add and remove 
@@ -15,7 +15,7 @@ The structure of a node is same as each line entry in the file
 
 
 
-#Node.h ::: Defines a structure representing an employee record stored in a linked list node. Each node contains:
+# Node.h ::: Defines a structure representing an employee record stored in a linked list node. Each node contains:
 
 int id — The employee's ID.
 
@@ -33,7 +33,7 @@ This structure forms the building block of a singly linked list to store employe
 
 
 
-##Node* createNode(int emp_id, char* n, int Age, float sal, Node* next_node);
+## Node* createNode(int emp_id, char* n, int Age, float sal, Node* next_node);
 Purpose:
 Creates a new Node dynamically with the given employee details.
 
@@ -44,7 +44,7 @@ Parameters are same as each entry, NULL is passed for next_node initially.
 
 
 
-##void print(Node* node);
+## void print(Node* node);
 Purpose:
 Prints the contents of a node to standard output in a human-readable format.
 
@@ -71,7 +71,7 @@ Salary: 45000.00
 
 
 
-#node.c :::: Implementation of Node Functions
+# node.c :::: Implementation of Node Functions
 
 
 Both createNode and print functions are defined here that were declared in the node.h file
@@ -92,14 +92,14 @@ createNode function return a pointer to the node called head.
 
 
 
-#emp.txt :::: Employee Data File
+# emp.txt :::: Employee Data File
 This file contains persistent employee records used by the program. 
 Each line in the file represents an employee.
 
-##File Structure
+## File Structure
 Each line follows this format:
 
-##id;name;age;salary
+## id;name;age;salary
 
 id — Unique integer employee ID
 
@@ -124,37 +124,37 @@ example
 -------------------------------------------------------------------------------------------------------------------------------------
 
 
-#main.c :::: Everything starts here (main logic is written here)
+# main.c :::: Everything starts here (main logic is written here)
 
 
 This file contains the main logic for the Employee Management System. 
 It interacts with the user, handles all command inputs, and coordinates the reading from and writing to the file (emp.txt) 
 and the in-memory linked list.
 
-##Key Responsibilities of main.c:
+## Key Responsibilities of main.c:
 
-###Load employee data from the file (emp.txt) into a linked list on startup.
+### Load employee data from the file (emp.txt) into a linked list on startup.
 
-###Provide a menu-based interface to:
+### Provide a menu-based interface to:
 
-###View all employees
+### View all employees
 
-###Add a new employee
+### Add a new employee
 
-###Remove an employee
+### Remove an employee
 
-###Print details of a specific employee
+### Print details of a specific employee
 
-###Persist changes back to the file
+### Persist changes back to the file
 
-###Ensure efficient in-memory operations using a singly linked list
-
-
+### Ensure efficient in-memory operations using a singly linked list
 
 
 
 
-##file_to_ll(Node** head, Node** tail, FILE* fptr);
+
+
+## file_to_ll(Node** head, Node** tail, FILE* fptr);
 Purpose:
 Reads each line from the file emp.txt and creates a node for each employee, linking them together to form the initial linked list.
 
@@ -169,7 +169,7 @@ Appends the created node to the end of the list using the tail pointer.
 
 
 
-##int Remove(Node** head, Node** tail, int emp_id);
+## int Remove(Node** head, Node** tail, int emp_id);
 Purpose:
 Removes a node with the specified employee ID from the linked list.
 
@@ -191,7 +191,7 @@ Returns:
 
 
 
-##void print_info(Node** head, int emp_id);
+## void print_info(Node** head, int emp_id);
 Purpose:
 Searches the list for an employee with the specified ID and prints their details using the print() function.
 
@@ -203,7 +203,7 @@ Prints "no employee with that id" if not found.
 
 
 
-##void remove_from_file(int emp_id, FILE* fptr);
+## void remove_from_file(int emp_id, FILE* fptr);
 Purpose:
 Marks an employee entry as deleted in the file (emp.txt) by replacing the first character of that line with #.
 
@@ -219,7 +219,7 @@ Keeps the line structure intact for consistency.
 
 
 
-##int validate(int emp_id, char* n, int Age, float sal, Node** tail);
+## int validate(int emp_id, char* n, int Age, float sal, Node** tail);
 Purpose:
 Validates user input before creating and adding a new employee node to the linked list and writing it to the file.
 
@@ -227,7 +227,7 @@ Ensures that all fields (emp_id, name, age, salary) meet strict data integrity c
 
 Details:
 
-###Employee ID (emp_id) Validation:
+### Employee ID (emp_id) Validation:
 
 If the list is empty, the first emp_id must be 1.
 
@@ -235,13 +235,13 @@ Otherwise, the new emp_id must be exactly one greater than the current last empl
 
 This enforces sequential and unique IDs.
 
-###Age Validation:
+### Age Validation:
 
 Acceptable range is between 20 and 80 (inclusive).
 
 Prevents unrealistic ages for employees.
 
-###Name (n) Validation:
+### Name (n) Validation:
 
 Must not be empty.
 
@@ -249,13 +249,13 @@ Can only contain uppercase and lowercase alphabetic characters and spaces.
 
 Disallows numbers, special characters, and other invalid symbols.
 
-###Salary Validation:
+### Salary Validation:
 
 Acceptable range is from 100.00 to 10,000,000.00.
 
 Ensures that salaries are within realistic bounds.
 
-###Return Value:
+### Return Value:
 
 Returns 1 if all validations pass (i.e., the input is valid).
 
@@ -265,7 +265,7 @@ Returns 0 if any validation check fails.
 
 
 
-##int main()
+## int main()
 Purpose:
 Entry point of the program. Handles user interaction via a menu system.
 
